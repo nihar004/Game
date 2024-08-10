@@ -1,17 +1,20 @@
 import { useState, useRef } from "react";
-import ResultModel from "./ResultModel.js";
+import ResultModal from "./ResultModal.js";
 
 export default function TimerChallenge({ title, targetTime }) {
   const [timerExpired, setTimerExpired] = useState(false);
   const [timerStated, setTimerStated] = useState(false);
 
   const timer = useRef();
+  const dialog = useRef();
 
   function handleStart() {
     setTimerStated(true);
 
     timer.current = setTimeout(() => {
       setTimerExpired(true);
+      setTimerStated(false);
+      dialog.current.showModal();
     }, targetTime * 1000);
   }
 
@@ -23,7 +26,9 @@ export default function TimerChallenge({ title, targetTime }) {
 
   return (
     <>
-      {timerExpired && <ResultModel targetTime={targetTime} result="lost" />}
+      {timerExpired && (
+        <ResultModal targetTime={targetTime} result="lost" ref={dialog} />
+      )}
       <section className="challenge">
         <h2>{title}</h2>
         <p className="challenge-time">
