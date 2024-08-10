@@ -1,6 +1,6 @@
 export default function ResultModel({ result, targetTime }) {
   return (
-    <dialog className="result-model" open>
+    <dialog className="result-modal" open>
       <h2>you {result}</h2>
       <p>
         The target time was <strong>{targetTime} seconds.</strong>
