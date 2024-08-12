@@ -1,4 +1,5 @@
 # Timer Challenge Game
+![image](https://github.com/user-attachments/assets/51d87833-3393-4b08-a95a-7acd98e40ca2)
 
 This project is a simple timer challenge game built with React. It allows users to start a timer and attempt to stop it before time runs out. The project includes a `TimerChallenge` component that handles the game logic and displays the results in a modal once the time expires.
 
